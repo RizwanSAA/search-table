@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div class="row mb-2">
+    <div class="col-lg-3">
+      <div class="form-inline">
+        <div class="form-group">
+          <div class="input-group mr-3">
+            <input type="text" class="form-control" [formControl]="searchFormControl" placeholder="search">
+            <div class="input-group-append">
+              <button class="btn btn-oultine-secondary" (click)="searchFormControl.setValue('')">x</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 ml-2">
+      <button class="btn btn-success" (click)="getData()">Fetch Results</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-sm" cdk-table [dataSource]="tableDataSource$">
+        <tr cdk-header-row *cdkHeaderRowDef="displayedColumns$.value"></tr>
+        <tr cdk-row *cdkRowDef="let row; columns: displayedColumns$.value"></tr>
+
+        <ng-container cdkColumnDef="id">
+            <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('id')">ID <span *ngIf="sortKey$.value === 'id'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
+            <td cdk-cell *cdkCellDef="let row">{{ row.id }}</td>
+          </ng-container>
+
+        <ng-container cdkColumnDef="name">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('name')">Name <span *ngIf="sortKey$.value === 'name'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
+          <td cdk-cell *cdkCellDef="let row">{{ row.name }}</td>
+        </ng-container>
+
+        <ng-container cdkColumnDef="company">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('company')">Company <span *ngIf="sortKey$.value === 'company'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
+          <td cdk-cell *cdkCellDef="let row">{{ row.company }}</td>
+        </ng-container>
+
+        <ng-container cdkColumnDef="designation">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('designation')">Designation <span *ngIf="sortKey$.value === 'designation'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
+          <td cdk-cell *cdkCellDef="let row">{{ row.designation }}</td>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+</div>
