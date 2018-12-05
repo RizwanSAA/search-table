@@ -76,7 +76,9 @@ export class TableComponent implements OnInit {
 
   // this function will fetch data from backend. it is binded to click event in the template
   getData() {
-    this.asyncData$.next(this.dataService.pushData())
+    setTimeout(() => {
+      this.asyncData$.next(this.dataService.pushData())
+    }, 2000)    
   }
 
   // this function get the keys(column-names) for sorting.
