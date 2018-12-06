@@ -20,8 +20,8 @@ export class TableComponent implements OnInit {
   displayedColumns$ = new BehaviorSubject<string[]>([
     'id',
     'name',
-    'company',
-    'designation'
+    'email',
+    'website'
   ])
 
   // this variable will capture the search keyword
@@ -75,10 +75,17 @@ export class TableComponent implements OnInit {
   }
 
   // this function will fetch data from backend. it is binded to click event in the template
+  // getData() {
+  //   setTimeout(() => {
+  //     this.asyncData$.next(this.dataService.pushData())
+  //   }, 2000)    
+  // }
+
   getData() {
-    setTimeout(() => {
-      this.asyncData$.next(this.dataService.pushData())
-    }, 2000)    
+    this.dataService.getDatafromURL().subscribe(res => {
+      console.log(res)
+      this.asyncData$.next(res)
+    }, error => console.log(error))
   }
 
   // this function get the keys(column-names) for sorting.

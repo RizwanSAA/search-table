@@ -32,14 +32,14 @@
           <td cdk-cell *cdkCellDef="let row">{{ row.name }}</td>
         </ng-container>
 
-        <ng-container cdkColumnDef="company">
-          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('company')">Company <span *ngIf="sortKey$.value === 'company'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
-          <td cdk-cell *cdkCellDef="let row">{{ row.company }}</td>
+        <ng-container cdkColumnDef="email">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('email')">Email <span *ngIf="sortKey$.value === 'email'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
+          <td cdk-cell *cdkCellDef="let row">{{ row.email }}</td>
         </ng-container>
 
-        <ng-container cdkColumnDef="designation">
-          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('designation')">Designation <span *ngIf="sortKey$.value === 'designation'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
-          <td cdk-cell *cdkCellDef="let row">{{ row.designation }}</td>
+        <ng-container cdkColumnDef="website">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('wesbite')">Designation <span *ngIf="sortKey$.value === 'website'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
+          <td cdk-cell *cdkCellDef="let row">{{ row.website }}</td>
         </ng-container>
       </table>
     </div>
