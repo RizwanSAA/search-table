@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, combineLatest } from 'rxjs';
-import { DataService } from '../data-service.service';
 import { FormControl } from '@angular/forms';
+
+import { BehaviorSubject, combineLatest } from 'rxjs';
+
+import { DataService } from '../data-service.service';
 
 @Component({
   selector: 'app-table',
@@ -21,7 +23,8 @@ export class TableComponent implements OnInit {
     'id',
     'name',
     'email',
-    'website'
+    'website',
+    'address'
   ])
 
   // this variable will capture the search keyword

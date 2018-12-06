@@ -38,8 +38,13 @@
         </ng-container>
 
         <ng-container cdkColumnDef="website">
-          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('wesbite')">Designation <span *ngIf="sortKey$.value === 'website'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('wesbite')">Website <span *ngIf="sortKey$.value === 'website'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
           <td cdk-cell *cdkCellDef="let row">{{ row.website }}</td>
+        </ng-container>
+
+        <ng-container cdkColumnDef="address">
+          <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('address.city')">City <span *ngIf="sortKey$.value === 'address.city'">{{ sortDirection$.value === 'asc' ? '&uarr;' : '&darr;' }}</span></th>
+          <td cdk-cell *cdkCellDef="let row">{{ row.address.city }}</td>
         </ng-container>
       </table>
     </div>
